@@ -27,7 +27,7 @@ const Signin = () => {
     e.preventDefault();
     try {
       await googleSignIn();
-      // navigate("/account");
+      navigate("/account");
     } catch (e) {
       setError(e.message);
       console.log(e.message);
@@ -37,7 +37,7 @@ const Signin = () => {
     e.preventDefault();
     try {
       await facebookSignIn();
-      // navigate("/account");
+      navigate("/account");
     } catch (e) {
       setError(e.message);
       console.log(e.message);
@@ -47,17 +47,17 @@ const Signin = () => {
     e.preventDefault();
     try {
       await githubSignIn();
-      // navigate("/account");
+      navigate("/account");
     } catch (e) {
       setError(e.message);
       console.log(e.message);
     }
   };
-  useEffect(() => {
-    if (user != null) {
-      navigate("/account");
-    }
-  }, [user]);
+  // useEffect(() => {
+  //   if (user != null) {
+  //     navigate("/account");
+  //   }
+  // }, [user]);
 
   return (
     <div className="max-w-[700px] mx-auto my-16 p-4">

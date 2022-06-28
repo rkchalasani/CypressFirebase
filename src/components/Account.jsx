@@ -21,7 +21,11 @@ const Account = () => {
       <h1 className="text-2xl font-bold py-4">Account</h1>
       <p id="useremail">User Email: {user && user.email}</p>
 
-      <button id="logoutbutton" onClick={handleLogout} className="border px-6 py-2 my-4">
+      <button
+        id="logoutbutton"
+        onClick={handleLogout}
+        className="border px-6 py-2 my-4"
+      >
         Logout
       </button>
     </div>
