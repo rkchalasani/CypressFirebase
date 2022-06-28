@@ -1,12 +1,13 @@
 
   describe('empty spec', () => {
 
-      beforeEach(() => {
+   
   
-        cy.visit("http://localhost:3000");
-      });
+
 
       it('passes', () => {
+        
+        cy.visit("http://localhost:3000");
         // cy.visit("http://localhost:3000");
         cy.get("#input-email").type("test2@gmail.com");
         cy.get("#input-pass").type("test123");
