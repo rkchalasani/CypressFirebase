@@ -1,0 +1,28 @@
+name: Cypress Test
+on: [push]
+jobs: 
+   cypress-run: 
+       runs-on: ubuntu-latest
+       steps:
+          - name: Checkout
+            uses: actions/checkout@v2.4.2
+            with: 
+               repository: 'rkchalasani/CypressFirebase'
+               ref: 'Cypress'
+               
+          - name: Cypress.io
+            uses: cypress-io/github-action@v4.1.1
+            with: 
+                install: npm install
+                start: npm start     
+          - uses: actions/upload-artifact@v2
+            if: failure()
+            with:
+               name: cypress-screenshots
+               path: cypress/screenshots
+      # Test run video was always captured, so this action uses "always()" condition
+          - uses: actions/upload-artifact@v2
+            if: always()
+            with:
+              name: cypress-videos
+              path: cypress/videos      
