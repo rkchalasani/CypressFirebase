@@ -8,7 +8,7 @@
 
     it('without entering any details', () => {
         cy.get("#signuplink").click()
-        cy.get("#signinbutton").click()
+        cy.get("#signupbutton").click()
         cy.on('window:alert', (text) => {
             expect(text).to.contains('required feilds');
           });
@@ -16,7 +16,7 @@
     it('with incorrect email format', () => {
         cy.get("#signuplink").click()
         cy.get("#signup-email").type('test')
-        cy.get("#signinbutton").click()
+        cy.get("#signupbutton").click()
         cy.on('window:alert', (text) => {
             expect(text).to.contains('required feilds');
           });
