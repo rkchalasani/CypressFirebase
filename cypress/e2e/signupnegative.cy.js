@@ -25,7 +25,7 @@
         cy.get("#signuplink").click()
         cy.get("#signup-email").type('test')
         cy.get("#signup-pass").type('123')
-        cy.get("#signinbutton").click()
+        cy.get("#signupbutton").click()
         cy.on('window:alert', (text) => {
             expect(text).to.contains('Password must be of 6 characters');
           });
