@@ -6,10 +6,10 @@ describe('empty spec', () => {
     // cy.get("#signuppass").type("123456");
     // cy.get("#signup").click();
     // cy.get('#signin').click();
-    cy.get("#input-email").type("abcd@abcd.com");
-    cy.get("#input-pass").type("123456");
+    cy.get("#input-email").type("test@gmail.com");
+    cy.get("#input-pass").type("test123");
     cy.get("#signinbutton").click();
-    cy.get("#useremail").contains("abcd@abcd.com");
+    cy.get("#useremail").contains("test@gmail.com");
     cy.get("#logoutbutton").click();
   })
 })
