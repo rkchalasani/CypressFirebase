@@ -2,7 +2,6 @@ describe("empty spec", () => {
   beforeEach(() => {
     cy.visit("http://localhost:3000");
   });
-
   it("without entering any details", () => {
     cy.get("#signuplink").click();
     cy.get("#signupbutton").click();

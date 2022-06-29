@@ -9,12 +9,9 @@ const Signup = () => {
   const [error, setError] = useState("");
   const { createUser, emailVerification, currentUser } = UserAuth();
   const navigate = useNavigate();
-
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     var atposition = email.indexOf("@");
-
     var dotposition = email.lastIndexOf(".");
     if (email == null || email === "" || password == null || password === "") {
       alert("Fill the required feilds");
@@ -26,16 +23,16 @@ const Signup = () => {
       dotposition + 2 >= email.length
     ) {
       alert("Please enter email address");
-    }else{
-    try {
-      await createUser(email, password);
-      await emailVerification(auth);
-    } catch (e) {
-      setError(e.message);
-      console.log(e.message);
+    } else {
+      try {
+        await createUser(email, password);
+        await emailVerification(auth);
+      } catch (e) {
+        setError(e.message);
+        console.log(e.message);
+      }
     }
-    }
-    };
+  };
 
   return (
     <div className="max-w-[700px] mx-auto my-16 p-4">
@@ -53,7 +50,6 @@ const Signup = () => {
           <label className="py-2 font-medium">Email Address</label>
           <input
             id="signup-email"
-          
             onChange={(e) => setEmail(e.target.value)}
             className="border p-3"
             type="text"
@@ -62,7 +58,6 @@ const Signup = () => {
         <div className="flex flex-col py-2">
           <label className="py-2 font-medium">Password</label>
           <input
-        
             id="signup-pass"
             onChange={(e) => setPassword(e.target.value)}
             className="border p-3"

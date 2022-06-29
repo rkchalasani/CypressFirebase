@@ -9,14 +9,11 @@ const Signin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-
   const navigate = useNavigate();
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
     var atposition = email.indexOf("@");
-
     var dotposition = email.lastIndexOf(".");
     if (email == null || email === "" || password == null || password === "") {
       alert("Fill the required feilds");
@@ -28,14 +25,15 @@ const Signin = () => {
       dotposition + 2 >= email.length
     ) {
       alert("Please enter email address");
-    }else{
-    try {
-      await signIn(email, password);
-      navigate("/account");
-    } catch (e) {
-      setError(e.message);
-      console.log(e.message);
-    }}
+    } else {
+      try {
+        await signIn(email, password);
+        navigate("/account");
+      } catch (e) {
+        setError(e.message);
+        console.log(e.message);
+      }
+    }
   };
   const handleGoogleSignIn = async (e) => {
     e.preventDefault();
@@ -67,20 +65,15 @@ const Signin = () => {
       console.log(e.message);
     }
   };
-  // useEffect(() => {
-  //   if (user != null) {
-  //     navigate("/account");
-  //   }
-  // }, [user]);
-
+  
   return (
     <div className="max-w-[700px] mx-auto my-16 p-4">
       <div>
         <h1 className="text-2xl font-bold py-2 ">Sign in to your account</h1>
         <p className="py-2">
           Don't have an account yet?{" "}
-          <Link  to="/signup" className="underline">
-           <span id="signuplink">Sign up</span>
+          <Link to="/signup" className="underline">
+            <span id="signuplink">Sign up</span>
           </Link>
         </p>
       </div>
@@ -88,8 +81,7 @@ const Signin = () => {
         <div className="flex flex-col py-2">
           <label className="py-2 font-medium">Email Address</label>
           <input
-
-          id="input-email"
+            id="input-email"
             onChange={(e) => setEmail(e.target.value)}
             className="border p-3"
             type="text"
@@ -104,7 +96,10 @@ const Signin = () => {
             type="password"
           />
         </div>
-        <button id="signinbutton" className="border border-black bg-black hover:bg-white hover:text-black w-full p-4 my-2 text-white">
+        <button
+          id="signinbutton"
+          className="border border-black bg-black hover:bg-white hover:text-black w-full p-4 my-2 text-white"
+        >
           Sign In
         </button>
       </form>
