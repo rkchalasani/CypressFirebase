@@ -15,13 +15,27 @@ const Signin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
+    var atposition = email.indexOf("@");
+
+    var dotposition = email.lastIndexOf(".");
+    if (email == null || email === "" || password == null || password === "") {
+      alert("Fill the required feilds");
+    } else if (password.length < 6) {
+      alert("Password must be of 6 characters");
+    } else if (
+      atposition < 1 ||
+      dotposition < atposition + 2 ||
+      dotposition + 2 >= email.length
+    ) {
+      alert("Please enter email address");
+    }else{
     try {
       await signIn(email, password);
       navigate("/account");
     } catch (e) {
       setError(e.message);
       console.log(e.message);
-    }
+    }}
   };
   const handleGoogleSignIn = async (e) => {
     e.preventDefault();
@@ -74,18 +88,17 @@ const Signin = () => {
         <div className="flex flex-col py-2">
           <label className="py-2 font-medium">Email Address</label>
           <input
-          required
+
           id="input-email"
             onChange={(e) => setEmail(e.target.value)}
             className="border p-3"
-            type="email"
+            type="text"
           />
         </div>
         <div className="flex flex-col py-2">
           <label className="py-2 font-medium">Password</label>
           <input
-          required
-          id="input-pass"
+            id="input-pass"
             onChange={(e) => setPassword(e.target.value)}
             className="border p-3"
             type="password"
